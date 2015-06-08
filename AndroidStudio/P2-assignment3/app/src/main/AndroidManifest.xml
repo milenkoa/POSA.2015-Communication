@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mooc.p2_assignment3" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="stateVisible" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".services.WeatherServiceSync"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":SyncServiceProcess">
+        </service>
+        <service
+            android:name=".services.WeatherServiceAsync"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":AsyncServiceProcess">
+        </service>
+    </application>
+
+</manifest>
